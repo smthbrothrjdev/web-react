@@ -5,7 +5,7 @@ import UserList from './UserList.js';
 import './App.css';
 
 function App() {
-  const rootUrl = 'http://localhost:3000/users';
+  const rootUrl = 'http://localhost:8080/users';
   const [users, setUsers] = useState([]);
 
   function fetchUsers() {
