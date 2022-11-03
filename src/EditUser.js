@@ -6,6 +6,7 @@ export default function UserEdit(props) {
   const [formData, setFormData] = useState({
     name: props.name,
     age: props.age,
+    id: 1,
   });
 
   const handleSetAge = () => {
@@ -28,8 +29,9 @@ export default function UserEdit(props) {
   };
 
   const handleSubmit = () => {
-    axios.post(props.rootUrl, formData);
-    props.fetchUsers();
+    axios.post(props.rootUrl, formData).then(() => {
+      props.fetchUsers();
+    });
   };
 
   return (
@@ -51,7 +53,6 @@ export default function UserEdit(props) {
         set random age
       </button>
       <button className="button" onClick={handleSubmit}>
-        {' '}
         save
       </button>
     </>

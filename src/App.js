@@ -10,6 +10,7 @@ function App() {
 
   function fetchUsers() {
     axios.get(rootUrl).then((res) => {
+      console.log('fetching');
       setUsers(res.data);
       console.log(res.data);
     });
