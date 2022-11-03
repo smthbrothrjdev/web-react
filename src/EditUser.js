@@ -34,17 +34,26 @@ export default function UserEdit(props) {
 
   return (
     <>
-      <h3> name: {formData.name}</h3>
-      <h3> age: {formData.age}</h3>
+      <div className="box">
+        <h3> name: {formData.name}</h3>
+        <h3> age: {formData.age}</h3>
+      </div>
       <input
         type="text"
         id="input"
         value={text}
         onChange={handleChange}
       ></input>
-      <button onClick={handleNameChange}>update name</button>
-      <button onClick={handleSetAge}>set random age</button>
-      <button onClick={handleSubmit}> save</button>
+      <button className="button" onClick={handleNameChange}>
+        update name
+      </button>
+      <button className="button" onClick={handleSetAge}>
+        set random age
+      </button>
+      <button className="button" onClick={handleSubmit}>
+        {' '}
+        save
+      </button>
     </>
   );
 }

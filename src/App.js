@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserEdit from './EditUser.js';
 import UserList from './UserList.js';
+import './App.css';
 
 function App() {
   const rootUrl = 'http://localhost:3000/users';
@@ -26,6 +27,7 @@ function App() {
         rootUrl={rootUrl}
       />
       <br />
+      <hr />
       <UserList users={users} />
     </div>
   );
