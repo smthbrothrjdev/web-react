@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import UserEdit from './EditUser.js';
+import UserList from './UserList.js';
 
 function App() {
+  const rootUrl = 'http://localhost:3000/users';
+  const [users, setUsers] = useState([]);
+
+  function fetchUsers() {
+    axios.get(rootUrl).then((res) => {
+      setUsers(res.data);
+      console.log(res.data);
+    });
+  }
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserEdit
+        name="put name here"
+        age={0}
+        fetchUsers={fetchUsers}
+        rootUrl={rootUrl}
+      />
+      <br />
+      <UserList users={users} />
     </div>
   );
 }
